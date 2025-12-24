@@ -142,20 +142,26 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 md:py-24">
+      {/* Team Header */}
+      <section className="gradient-subtle py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary mb-6">
               Our Team
             </div>
             <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Meet the People Behind AUSCORA
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               A passionate team dedicated to revolutionizing healthcare technology.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Team Members */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
 
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
