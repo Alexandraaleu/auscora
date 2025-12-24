@@ -12,15 +12,14 @@ const Index = () => {
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Advancing Healthcare Technology
+              Digital Auscultation Technology
             </div>
             <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
               Innovating for{" "}
-              <span className="text-primary">Better Healthcare</span>
+              <span className="text-primary">More Reliable Clinical Decision-Making</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              AUSCORA is dedicated to developing innovative medical technology 
-              that empowers healthcare professionals to deliver exceptional patient care.
+              AUSCORA builds medical technology that supports auscultation training by transforming subjective heart and lung sounds into structured, interpretable clinical signals.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" asChild className="gap-2">
