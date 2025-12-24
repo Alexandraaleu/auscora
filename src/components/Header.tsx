@@ -49,7 +49,7 @@ const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex">
           <Button asChild>
-            <Link to="/contact">Get in Touch</Link>
+            <a href="mailto:auscoradk@gmail.com">Get in Touch</a>
           </Button>
         </div>
 
@@ -83,9 +83,9 @@ const Header = () => {
             ))}
             <div className="mt-2 px-4">
               <Button asChild className="w-full">
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <a href="mailto:auscoradk@gmail.com" onClick={() => setIsMenuOpen(false)}>
                   Get in Touch
-                </Link>
+                </a>
               </Button>
             </div>
           </nav>
