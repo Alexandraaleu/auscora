@@ -3,101 +3,102 @@
 @tailwind utilities;
 
 /* AUSCORA MedTech Design System
-   Clean, clinical aesthetic with cool blues/teals for trust and medical professionalism
+   Modern healthcare aesthetic with deep navy and fresh cyan accents
+   Clean, professional, and trustworthy
    All colors in HSL format
 */
 
 @layer base {
   :root {
-    /* Cool teal/blue palette for medical trust */
-    --background: 210 20% 98%;
-    --foreground: 210 40% 11%;
+    /* Clean white/off-white background for clinical feel */
+    --background: 220 20% 99%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 11%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 11%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary: Deep teal - medical precision */
-    --primary: 187 65% 32%;
+    /* Primary: Deep navy blue - trust, professionalism */
+    --primary: 222 47% 20%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Light teal background */
-    --secondary: 187 30% 95%;
-    --secondary-foreground: 187 65% 25%;
+    /* Secondary: Soft light blue-gray */
+    --secondary: 220 25% 95%;
+    --secondary-foreground: 222 47% 20%;
 
-    /* Muted: Soft gray-blue */
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 15% 45%;
+    /* Muted: Neutral gray with slight blue */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Accent: Bright teal for highlights */
-    --accent: 187 75% 42%;
+    /* Accent: Fresh cyan/teal for innovation */
+    --accent: 174 72% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 187 65% 32%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 222 47% 20%;
 
     --radius: 0.75rem;
 
     /* Sidebar variables */
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 210 40% 11%;
-    --sidebar-primary: 187 65% 32%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 222 47% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 187 30% 95%;
-    --sidebar-accent-foreground: 187 65% 25%;
-    --sidebar-border: 210 20% 90%;
-    --sidebar-ring: 187 65% 32%;
+    --sidebar-accent: 220 25% 95%;
+    --sidebar-accent-foreground: 222 47% 20%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 222 47% 20%;
 
     /* Custom AUSCORA tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(187 65% 32%) 0%, hsl(200 70% 40%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(187 20% 96%) 100%);
-    --shadow-soft: 0 4px 20px -4px hsl(210 30% 15% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(210 30% 15% / 0.1);
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 20%) 0%, hsl(222 40% 30%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 99%) 0%, hsl(220 25% 97%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(222 30% 15% / 0.06);
+    --shadow-card: 0 8px 30px -8px hsl(222 30% 15% / 0.08);
   }
 
   .dark {
-    --background: 210 40% 6%;
-    --foreground: 210 20% 96%;
+    --background: 222 47% 6%;
+    --foreground: 220 20% 96%;
 
-    --card: 210 35% 10%;
-    --card-foreground: 210 20% 96%;
+    --card: 222 40% 10%;
+    --card-foreground: 220 20% 96%;
 
-    --popover: 210 35% 10%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 222 40% 10%;
+    --popover-foreground: 220 20% 96%;
 
-    --primary: 187 60% 45%;
-    --primary-foreground: 210 40% 6%;
+    --primary: 174 60% 50%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 210 30% 15%;
-    --secondary-foreground: 187 50% 70%;
+    --secondary: 222 35% 15%;
+    --secondary-foreground: 174 50% 70%;
 
-    --muted: 210 30% 15%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 187 60% 50%;
-    --accent-foreground: 210 40% 6%;
+    --accent: 174 65% 55%;
+    --accent-foreground: 222 47% 6%;
 
     --destructive: 0 62% 35%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 25% 18%;
-    --input: 210 25% 18%;
-    --ring: 187 60% 45%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 174 60% 50%;
 
-    --sidebar-background: 210 40% 8%;
-    --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 187 60% 45%;
-    --sidebar-primary-foreground: 210 40% 6%;
-    --sidebar-accent: 210 30% 15%;
-    --sidebar-accent-foreground: 187 50% 70%;
-    --sidebar-border: 210 25% 18%;
-    --sidebar-ring: 187 60% 45%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 220 20% 96%;
+    --sidebar-primary: 174 60% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 174 50% 70%;
+    --sidebar-border: 222 25% 18%;
+    --sidebar-ring: 174 60% 50%;
   }
 }
 
