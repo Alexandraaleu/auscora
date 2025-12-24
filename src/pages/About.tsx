@@ -31,17 +31,17 @@ const About = () => {
     {
       name: "Balavignesh Baskar",
       role: "CMO",
-      linkedin: "https://www.linkedin.com/in/balavignesh-baskar",
+      linkedin: "https://www.linkedin.com/in/balavignesh-baskar-3609a0356/",
     },
     {
       name: "Mariana Contente",
       role: "COO",
-      linkedin: "https://www.linkedin.com/in/mariana-contente",
+      linkedin: "https://www.linkedin.com/in/mariana-contente/",
     },
     {
       name: "Valentina Trolese",
       role: "Head of ML",
-      linkedin: "https://www.linkedin.com/in/valentina-trolese",
+      linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/",
     },
   ];
 
