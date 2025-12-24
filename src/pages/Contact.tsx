@@ -1,46 +1,14 @@
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    organization: "",
-    message: "",
-  });
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [isWaitlistSubmitting, setIsWaitlistSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message Sent",
-      description: "Thank you for contacting us. We'll respond within 24-48 hours.",
-    });
-
-    setFormData({ name: "", email: "", organization: "", message: "" });
-    setIsSubmitting(false);
-  };
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,79 +64,29 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
+      {/* Waiting List & Contact Info */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Contact Form */}
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
-              <h2 className="font-display text-2xl font-semibold text-foreground">
-                Send Us a Message
+            {/* Waiting List */}
+            <div className="rounded-3xl bg-primary p-8 md:p-12 flex flex-col justify-center">
+              <h2 className="font-display text-2xl font-bold tracking-tight text-primary-foreground sm:text-3xl">
+                Ready to Make an Impact?
               </h2>
-              <p className="mt-2 text-muted-foreground">
-                Fill out the form below and we'll get back to you within 24-48 hours.
+              <p className="mt-4 text-primary-foreground/80">
+                Join our waiting list and make sure you are shortlisted when our product is on the market.
               </p>
-
-              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Dr. Jane Smith"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="jane@hospital.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="organization">Organization</Label>
-                  <Input
-                    id="organization"
-                    name="organization"
-                    placeholder="City Medical Center"
-                    value={formData.organization}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell us about your needs or questions..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="h-4 w-4" />
-                    </>
-                  )}
+              <form onSubmit={handleWaitlistSubmit} className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={waitlistEmail}
+                  onChange={(e) => setWaitlistEmail(e.target.value)}
+                  required
+                  className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                />
+                <Button size="lg" variant="secondary" type="submit" disabled={isWaitlistSubmitting}>
+                  {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
                 </Button>
               </form>
             </div>
@@ -216,33 +134,6 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Waiting List CTA */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl rounded-3xl bg-primary p-10 text-center md:p-16">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-              Ready to Make an Impact?
-            </h2>
-            <p className="mt-4 text-primary-foreground/80 text-lg">
-              Join our waiting list and make sure you are shortlisted when our product is on the market.
-            </p>
-            <form onSubmit={handleWaitlistSubmit} className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={waitlistEmail}
-                onChange={(e) => setWaitlistEmail(e.target.value)}
-                required
-                className="max-w-xs bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-              />
-              <Button size="lg" variant="secondary" type="submit" disabled={isWaitlistSubmitting}>
-                {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
-              </Button>
-            </form>
           </div>
         </div>
       </section>
