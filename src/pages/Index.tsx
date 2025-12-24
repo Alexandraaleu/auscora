@@ -56,6 +56,25 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <section className="py-16 md:py-20 border-t border-border/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <p className="text-center text-sm font-medium uppercase tracking-wider text-muted-foreground mb-10">
+            Supported By
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+            {["DTU", "MicroLegat", "SDU Rio", "TechBBQ", "WebSummit"].map((partner) => (
+              <div
+                key={partner}
+                className="flex h-12 items-center justify-center px-4 text-lg font-medium text-muted-foreground/60 hover:text-muted-foreground transition-colors"
+              >
+                {partner}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };
