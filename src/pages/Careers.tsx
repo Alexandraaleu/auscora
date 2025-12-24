@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Cpu, Heart, Lightbulb, Mail } from "lucide-react";
+import { ArrowRight, Code, Cpu, Heart, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
@@ -124,27 +124,6 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl rounded-3xl bg-primary p-10 text-center md:p-16">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-              Ready to Make an Impact?
-            </h2>
-            <p className="mt-4 text-primary-foreground/80 text-lg">
-              Join our waiting list and make sure you are shortlisted when our product is on the market.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" variant="secondary" asChild className="gap-2">
-                <a href="mailto:auscoradk@gmail.com?subject=Career%20Inquiry%20-%20AUSCORA">
-                  <Mail className="h-4 w-4" />
-                  auscoradk@gmail.com
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 };
