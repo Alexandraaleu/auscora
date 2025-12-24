@@ -132,7 +132,7 @@ const Careers = () => {
               Ready to Make an Impact?
             </h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              Send us your resume and tell us about yourself. We're excited to hear from you.
+              Join our waiting list and make sure you are shortlisted when our product is on the market.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" variant="secondary" asChild className="gap-2">
