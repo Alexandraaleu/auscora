@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Target, Eye, Users, Award, ShieldCheck, Globe } from "lucide-react";
+import { Target, Eye, Users, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
@@ -22,12 +22,6 @@ const About = () => {
     },
   ];
 
-  const credentials = [
-    { label: "FDA Approved", icon: ShieldCheck },
-    { label: "CE Marked", icon: Award },
-    { label: "ISO 13485", icon: Award },
-    { label: "Global Distribution", icon: Globe },
-  ];
 
   return (
     <Layout>
@@ -125,31 +119,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Credentials */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Certifications & Compliance
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              AUSCORA products meet the highest regulatory standards worldwide.
-            </p>
-          </div>
-
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-            {credentials.map((cred) => (
-              <div 
-                key={cred.label} 
-                className="flex items-center gap-3 rounded-full border border-border bg-card px-6 py-3 shadow-soft"
-              >
-                <cred.icon className="h-5 w-5 text-primary" />
-                <span className="font-medium text-foreground">{cred.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="border-t border-border bg-muted/30 py-16 md:py-24">
