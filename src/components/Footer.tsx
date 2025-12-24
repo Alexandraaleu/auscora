@@ -47,22 +47,22 @@ const Footer = () => {
             <h3 className="font-display font-semibold text-foreground">Contact</h3>
             <div className="flex flex-col gap-3">
               <a 
-                href="mailto:info@auscora.com" 
+                href="mailto:auscoradk@gmail.com" 
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                info@auscora.com
+                auscoradk@gmail.com
               </a>
               <a 
-                href="tel:+1234567890" 
+                href="tel:+4550299813" 
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                +1 (234) 567-890
+                +45 50 29 98 13
               </a>
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>123 Medical Drive<br />Innovation City, MC 12345</span>
+                <span>Centrifugevej 374<br />2800 Kongens Lyngby</span>
               </div>
             </div>
           </div>

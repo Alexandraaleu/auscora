@@ -44,19 +44,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "info@auscora.com",
-      href: "mailto:info@auscora.com",
+      value: "auscoradk@gmail.com",
+      href: "mailto:auscoradk@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (234) 567-890",
-      href: "tel:+1234567890",
+      value: "+45 50 29 98 13",
+      href: "tel:+4550299813",
     },
     {
       icon: MapPin,
       label: "Address",
-      value: "123 Medical Drive, Innovation City, MC 12345",
+      value: "Centrifugevej 374, 2800 Kongens Lyngby",
       href: null,
     },
   ];
