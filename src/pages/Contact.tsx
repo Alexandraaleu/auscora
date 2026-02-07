@@ -1,14 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 
+declare global {
+  interface Window {
+    calendar?: {
+      schedulingButton: {
+        load: (config: {
+          url: string;
+          color: string;
+          label: string;
+          target: HTMLElement;
+        }) => void;
+      };
+    };
+  }
+}
+
 const Contact = () => {
   const { toast } = useToast();
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [isWaitlistSubmitting, setIsWaitlistSubmitting] = useState(false);
+  const calendarButtonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load Google Calendar CSS
+    const link = document.createElement("link");
+    link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    // Load Google Calendar JS
+    const script = document.createElement("script");
+    script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.calendar && calendarButtonRef.current) {
+        window.calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16gcU31mcua5u0S2DSxLuAb9GpgzEJ64JUI7WXtf0FuYaQj3DYGZw_oYeDg7UD4laatdPwyYfo?gv=true',
+          color: '#3F51B5',
+          label: 'Book an appointment',
+          target: calendarButtonRef.current,
+        });
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.head.removeChild(script);
+    };
+  }, []);
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,18 +134,7 @@ const Contact = () => {
                   {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
                 </Button>
               </form>
-              <div className="mt-6">
-                <Button 
-                  size="lg" 
-                  variant="secondary" 
-                  asChild
-                  className="font-semibold"
-                >
-                  <a href="https://calendar.app.google/cmujF4DyAtzvY4CE7" target="_blank" rel="noopener noreferrer">
-                    BOOK US
-                  </a>
-                </Button>
-              </div>
+              <div className="mt-6" ref={calendarButtonRef} />
             </div>
 
             {/* Contact Information */}
