@@ -27,6 +27,11 @@ const Contact = () => {
   const calendarButtonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Clear any existing buttons first
+    if (calendarButtonRef.current) {
+      calendarButtonRef.current.innerHTML = '';
+    }
+
     // Load Google Calendar CSS
     const link = document.createElement("link");
     link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
@@ -37,8 +42,10 @@ const Contact = () => {
     const script = document.createElement("script");
     script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
     script.async = true;
-    script.onload = () => {
+    
+    const initButton = () => {
       if (window.calendar && calendarButtonRef.current) {
+        calendarButtonRef.current.innerHTML = '';
         window.calendar.schedulingButton.load({
           url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16gcU31mcua5u0S2DSxLuAb9GpgzEJ64JUI7WXtf0FuYaQj3DYGZw_oYeDg7UD4laatdPwyYfo?gv=true',
           color: '#EEF1F6',
@@ -47,11 +54,20 @@ const Contact = () => {
         });
       }
     };
-    document.head.appendChild(script);
+
+    script.onload = initButton;
+    
+    // If script already loaded, just init
+    if (window.calendar) {
+      initButton();
+    } else {
+      document.head.appendChild(script);
+    }
 
     return () => {
-      document.head.removeChild(link);
-      document.head.removeChild(script);
+      if (calendarButtonRef.current) {
+        calendarButtonRef.current.innerHTML = '';
+      }
     };
   }, []);
 
