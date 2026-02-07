@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import auscoraLogo from "@/assets/auscora-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,13 +22,12 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <span className="font-display text-lg font-bold text-primary-foreground">A</span>
-          </div>
-          <span className="font-display text-xl font-semibold tracking-tight text-foreground">
-            AUSCORA
-          </span>
+        <Link to="/" className="flex items-center">
+          <img 
+            src={auscoraLogo} 
+            alt="AUSCORA" 
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
