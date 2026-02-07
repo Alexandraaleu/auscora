@@ -1,79 +1,32 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 
-declare global {
-  interface Window {
-    calendar?: {
-      schedulingButton: {
-        load: (config: {
-          url: string;
-          color: string;
-          label: string;
-          target: HTMLElement;
-        }) => void;
-      };
-    };
-  }
-}
-
 const Contact = () => {
   const { toast } = useToast();
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [isWaitlistSubmitting, setIsWaitlistSubmitting] = useState(false);
-  const calendarButtonRef = useRef<HTMLDivElement>(null);
 
+  // Remove any previously injected Google scheduling widgets (from earlier versions)
   useEffect(() => {
-    const CALENDAR_CSS_ID = 'google-calendar-css';
-    const CALENDAR_SCRIPT_ID = 'google-calendar-script';
+    document.getElementById("google-calendar-script")?.remove();
+    document.getElementById("google-calendar-css")?.remove();
 
-    // Clear container first
-    if (calendarButtonRef.current) {
-      calendarButtonRef.current.innerHTML = '';
-    }
+    const scheduleId =
+      "AcZssZ16gcU31mcua5u0S2DSxLuAb9GpgzEJ64JUI7WXtf0FuYaQj3DYGZw_oYeDg7UD4laatdPwyYfo";
 
-    // Add CSS only if not already present
-    if (!document.getElementById(CALENDAR_CSS_ID)) {
-      const link = document.createElement("link");
-      link.id = CALENDAR_CSS_ID;
-      link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
-    }
+    const selectors = [
+      `a[href*="${scheduleId}"]`,
+      `iframe[src*="${scheduleId}"]`,
+      `[data-url*="${scheduleId}"]`,
+    ];
 
-    const initButton = () => {
-      if (window.calendar && calendarButtonRef.current) {
-        calendarButtonRef.current.innerHTML = '';
-        window.calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16gcU31mcua5u0S2DSxLuAb9GpgzEJ64JUI7WXtf0FuYaQj3DYGZw_oYeDg7UD4laatdPwyYfo?gv=true',
-          color: '#EEF1F6',
-          label: 'Book an appointment',
-          target: calendarButtonRef.current,
-        });
-      }
-    };
-
-    // Add script only if not already present
-    if (!document.getElementById(CALENDAR_SCRIPT_ID)) {
-      const script = document.createElement("script");
-      script.id = CALENDAR_SCRIPT_ID;
-      script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
-      script.async = true;
-      script.onload = initButton;
-      document.head.appendChild(script);
-    } else if (window.calendar) {
-      // Script already loaded, just init
-      initButton();
-    }
-
-    return () => {
-      if (calendarButtonRef.current) {
-        calendarButtonRef.current.innerHTML = '';
-      }
-    };
+    selectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => el.remove());
+    });
   }, []);
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
@@ -155,7 +108,7 @@ const Contact = () => {
                   {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
                 </Button>
               </form>
-              <div className="mt-6" ref={calendarButtonRef} />
+              
             </div>
 
             {/* Contact Information */}
