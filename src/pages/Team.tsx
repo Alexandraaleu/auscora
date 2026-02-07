@@ -27,6 +27,7 @@ const Team = () => {
       role: "COO",
       linkedin: "https://www.linkedin.com/in/mariana-contente/",
       photo: marianaPhoto,
+      photoPosition: "object-[center_20%]",
     },
     {
       name: "Valentina Trolese",
@@ -72,7 +73,7 @@ const Team = () => {
                   <img 
                     src={member.photo} 
                     alt={member.name}
-                    className="h-full w-full object-cover object-top"
+                    className={`h-full w-full object-cover ${member.photoPosition || 'object-top'}`}
                   />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground text-center">
