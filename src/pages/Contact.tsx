@@ -41,7 +41,7 @@ const Contact = () => {
       if (window.calendar && calendarButtonRef.current) {
         window.calendar.schedulingButton.load({
           url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16gcU31mcua5u0S2DSxLuAb9GpgzEJ64JUI7WXtf0FuYaQj3DYGZw_oYeDg7UD4laatdPwyYfo?gv=true',
-          color: '#3F51B5',
+          color: '#EEF1F6',
           label: 'Book an appointment',
           target: calendarButtonRef.current,
         });
