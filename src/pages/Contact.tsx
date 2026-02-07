@@ -89,6 +89,18 @@ const Contact = () => {
                   {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
                 </Button>
               </form>
+              <div className="mt-6">
+                <Button 
+                  size="lg" 
+                  variant="secondary" 
+                  asChild
+                  className="font-semibold"
+                >
+                  <a href="https://calendar.app.google/cmujF4DyAtzvY4CE7" target="_blank" rel="noopener noreferrer">
+                    BOOK US
+                  </a>
+                </Button>
+              </div>
             </div>
 
             {/* Contact Information */}
