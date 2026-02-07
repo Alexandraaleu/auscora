@@ -26,7 +26,7 @@ const Header = () => {
           <img 
             src={auscoraLogo} 
             alt="AUSCORA" 
-            className="h-14 w-auto"
+            className="h-28 w-auto"
           />
         </Link>
 
