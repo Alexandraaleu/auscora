@@ -3,27 +3,36 @@ import { Linkedin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
+import alexandraPhoto from "@/assets/team/alexandra.png";
+import balavigneshPhoto from "@/assets/team/balavignesh.png";
+import marianaPhoto from "@/assets/team/mariana.png";
+import valentinaPhoto from "@/assets/team/valentina.png";
+
 const Team = () => {
   const team = [
     {
       name: "Alexandra Leu",
       role: "CEO",
       linkedin: "https://www.linkedin.com/in/alexandra-leu-236a9621a",
+      photo: alexandraPhoto,
     },
     {
       name: "Balavignesh Baskar",
       role: "CMO",
       linkedin: "https://www.linkedin.com/in/balavignesh-baskar-3609a0356/",
+      photo: balavigneshPhoto,
     },
     {
       name: "Mariana Contente",
       role: "COO",
       linkedin: "https://www.linkedin.com/in/mariana-contente/",
+      photo: marianaPhoto,
     },
     {
       name: "Valentina Trolese",
       role: "Head of ML",
       linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/",
+      photo: valentinaPhoto,
     },
   ];
 
@@ -59,10 +68,12 @@ const Team = () => {
                 rel="noopener noreferrer"
                 className="group rounded-2xl border border-border bg-card p-8 shadow-soft transition-all hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 mx-auto mb-6">
-                  <span className="font-display text-2xl font-bold text-primary">
-                    {member.name.split(" ").map(n => n[0]).join("")}
-                  </span>
+                <div className="h-24 w-24 mx-auto mb-6 rounded-full overflow-hidden">
+                  <img 
+                    src={member.photo} 
+                    alt={member.name}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground text-center">
                   {member.name}
