@@ -27,22 +27,23 @@ const Contact = () => {
   const calendarButtonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Clear any existing buttons first
+    const CALENDAR_CSS_ID = 'google-calendar-css';
+    const CALENDAR_SCRIPT_ID = 'google-calendar-script';
+
+    // Clear container first
     if (calendarButtonRef.current) {
       calendarButtonRef.current.innerHTML = '';
     }
 
-    // Load Google Calendar CSS
-    const link = document.createElement("link");
-    link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
+    // Add CSS only if not already present
+    if (!document.getElementById(CALENDAR_CSS_ID)) {
+      const link = document.createElement("link");
+      link.id = CALENDAR_CSS_ID;
+      link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
 
-    // Load Google Calendar JS
-    const script = document.createElement("script");
-    script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
-    script.async = true;
-    
     const initButton = () => {
       if (window.calendar && calendarButtonRef.current) {
         calendarButtonRef.current.innerHTML = '';
@@ -55,13 +56,17 @@ const Contact = () => {
       }
     };
 
-    script.onload = initButton;
-    
-    // If script already loaded, just init
-    if (window.calendar) {
-      initButton();
-    } else {
+    // Add script only if not already present
+    if (!document.getElementById(CALENDAR_SCRIPT_ID)) {
+      const script = document.createElement("script");
+      script.id = CALENDAR_SCRIPT_ID;
+      script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
+      script.async = true;
+      script.onload = initButton;
       document.head.appendChild(script);
+    } else if (window.calendar) {
+      // Script already loaded, just init
+      initButton();
     }
 
     return () => {
