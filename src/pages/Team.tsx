@@ -5,7 +5,6 @@ import Layout from "@/components/Layout";
 
 import alexandraPhoto from "@/assets/team/alexandra.png";
 import balavigneshPhoto from "@/assets/team/balavignesh.png";
-import marianaPhoto from "@/assets/team/mariana.png";
 import valentinaPhoto from "@/assets/team/valentina.png";
 
 const Team = () => {
@@ -23,11 +22,10 @@ const Team = () => {
       photo: balavigneshPhoto,
     },
     {
-      name: "Mariana Contente",
-      role: "COO",
-      linkedin: "https://www.linkedin.com/in/mariana-contente/",
-      photo: marianaPhoto,
-      photoPosition: "object-[center_20%]",
+      name: "Simone Storm",
+      role: "Head of Software Infrastructure",
+      linkedin: "#",
+      photo: null as string | null,
     },
     {
       name: "Valentina Trolese",
