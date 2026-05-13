@@ -67,12 +67,18 @@ const Team = () => {
                 rel="noopener noreferrer"
                 className="group rounded-2xl border border-border bg-card p-8 shadow-soft transition-all hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="h-24 w-24 mx-auto mb-6 rounded-full overflow-hidden">
-                  <img 
-                    src={member.photo} 
-                    alt={member.name}
-                    className={`h-full w-full object-cover ${member.photoPosition || 'object-top'}`}
-                  />
+                <div className="h-24 w-24 mx-auto mb-6 rounded-full overflow-hidden bg-muted flex items-center justify-center">
+                  {member.photo ? (
+                    <img 
+                      src={member.photo} 
+                      alt={member.name}
+                      className={`h-full w-full object-cover ${(member as { photoPosition?: string }).photoPosition || 'object-top'}`}
+                    />
+                  ) : (
+                    <span className="font-display text-xl font-semibold text-muted-foreground">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  )}
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground text-center">
                   {member.name}
