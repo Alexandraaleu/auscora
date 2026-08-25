@@ -93,7 +93,7 @@ const Careers = () => {
             </p>
           </div>
 
-          <div className="mt-12 mx-auto max-w-2xl">
+          <div className="mt-12 mx-auto max-w-2xl space-y-6">
             <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
@@ -104,9 +104,9 @@ const Careers = () => {
                     Engineering Positions
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    We're always open to hearing from talented engineers with experience in 
-                    medical device development, embedded systems, software engineering, or 
-                    related fields. If you're passionate about healthcare technology, we'd 
+                    We're always open to hearing from talented engineers with experience in
+                    machine learning, audio and signal processing, embedded systems, or medical
+                    device software. If you're passionate about healthcare technology, we'd
                     love to connect.
                   </p>
                   <div className="mt-6">
@@ -120,7 +120,35 @@ const Careers = () => {
                 </div>
               </div>
             </div>
+
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
+                  <GraduationCap className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-display text-xl font-semibold text-foreground">
+                    PhD & Research Roles
+                  </h3>
+                  <p className="mt-2 text-muted-foreground">
+                    We are exploring bringing a PhD student onto our team to work on acoustic AI
+                    for pulmonary disease detection, alongside our clinical partnership at
+                    Hospital Da Luz. If you're pursuing research in this space, we'd like to hear
+                    from you.
+                  </p>
+                  <div className="mt-6">
+                    <Button variant="outline" asChild className="gap-2">
+                      <a href="mailto:auscoradk@gmail.com?subject=PhD%20%2F%20Research%20Opportunity%20at%20AUSCORA">
+                        Get in Touch
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
