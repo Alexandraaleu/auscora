@@ -21,14 +21,12 @@ const pillars = [
   {
     icon: Activity,
     title: "The Problem",
-    description:
-      "Pulmonary diseases including COPD and pneumonia affect hundreds of millions globally. Diagnosis still depends on imaging that is slow, expensive, radiative, and often unavailable at the point of first contact.",
+    description: "Pulmonary diseases affect hundreds of millions globally. ",
   },
   {
     icon: AudioWaveform,
     title: "Our Approach",
-    description:
-      "Acoustic AI that learns the sound signature of disease and delivers a decision-support signal in the time it takes to auscultate.",
+    description: "AI that learns the sound signature of disease and delivers a decision-support signal.",
   },
   {
     icon: TrendingUp,
@@ -39,7 +37,7 @@ const pillars = [
 ];
 
 const milestones = [
-  "Early-stage with a working prototype",
+  "Early-stage with a working PoC",
   "Clinical partnership at Hospital Da Luz",
   "Validating with physicians on pulmonary conditions",
 ];
@@ -60,10 +58,10 @@ const Index = () => {
             </p>
             <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
               AI-Powered Detection of{" "}
-              <span className="text-primary">Pulmonary Disease, Through Sound</span>
+              <span className="text-primary">Pulmonary Disease</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              AUSCORA analyses lung sounds and provides physicians with clinical decision support — without radiation and without waiting for imaging.
+              AUSCORA analyses lung sounds and provides physicians with clinical decision support, without radiation and without waiting for imaging.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" asChild className="gap-2">
