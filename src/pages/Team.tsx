@@ -6,7 +6,7 @@ import Layout from "@/components/Layout";
 import alexandraPhoto from "@/assets/team/alexandra.png";
 import balavigneshPhoto from "@/assets/team/balavignesh.png";
 import valentinaPhoto from "@/assets/team/valentina.png";
-import mauricioPhoto from "@/assets/team/mauricio.png";
+import mauricioPhoto from "@/assets/team/mauricio-fixed.png";
 
 const Team = () => {
   const team = [
