@@ -22,14 +22,14 @@ const Team = () => {
       photo: balavigneshPhoto,
     },
     {
-      name: "Simone Storm",
-      role: "Head of Software Infrastructure",
+      name: "Mauricio Parás ",
+      role: "CTO",
       linkedin: "#",
       photo: null as string | null,
     },
     {
       name: "Valentina Trolese",
-      role: "Head of ML",
+      role: "Head of Software Infrastructure",
       linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/",
       photo: valentinaPhoto,
     },
