@@ -26,7 +26,7 @@ const Team = () => {
       name: "Mauricio Parás ",
       role: "CTO",
       linkedin: "#",
-      photo: null as string | null,
+      photo: mauricioPhoto,
     },
     {
       name: "Valentina Trolese",
