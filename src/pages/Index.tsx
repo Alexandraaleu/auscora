@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Activity, AudioWaveform, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
@@ -17,6 +17,33 @@ const partners = [
   { name: "Web Summit", logo: websummitLogo },
 ];
 
+const pillars = [
+  {
+    icon: Activity,
+    title: "The Problem",
+    description:
+      "Pulmonary diseases including COPD and pneumonia affect hundreds of millions globally. Diagnosis still depends on imaging that is slow, expensive, radiative, and often unavailable at the point of first contact.",
+  },
+  {
+    icon: AudioWaveform,
+    title: "Our Approach",
+    description:
+      "Acoustic AI that learns the sound signature of disease and delivers a decision-support signal in the time it takes to auscultate.",
+  },
+  {
+    icon: TrendingUp,
+    title: "The Opportunity",
+    description:
+      "AI-powered disease diagnosis is already valued at roughly USD 4 billion and growing at about 20%+ annually.",
+  },
+];
+
+const milestones = [
+  "Early-stage with a working prototype",
+  "Clinical partnership at Hospital Da Luz",
+  "Validating with physicians on pulmonary conditions",
+];
+
 const Index = () => {
   return (
     <Layout>
@@ -26,14 +53,17 @@ const Index = () => {
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Digital Auscultation Technology
+              Acoustic AI for Pulmonary Health
             </div>
-            <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-              Innovating for{" "}
-              <span className="text-primary">More Reliable Clinical Decision-Making</span>
+            <p className="font-display text-sm uppercase tracking-[0.2em] text-muted-foreground">
+              Listen to the Future
+            </p>
+            <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+              AI-Powered Detection of{" "}
+              <span className="text-primary">Pulmonary Disease, Through Sound</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              AUSCORA builds medical technology that supports auscultation training by transforming subjective heart and lung sounds into structured, interpretable clinical signals.
+              AUSCORA analyses lung sounds and provides physicians with clinical decision support — without radiation and without waiting for imaging.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" asChild className="gap-2">
@@ -51,6 +81,52 @@ const Index = () => {
         {/* Decorative gradient blob */}
         <div className="absolute -bottom-1/2 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-primary/5 blur-3xl" />
       </section>
+
+      {/* Problem / Approach / Opportunity */}
+      <section className="border-y border-border bg-muted/30 py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            {pillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="rounded-2xl border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:shadow-card hover:border-primary/20"
+              >
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <pillar.icon className="h-6 w-6" />
+                </div>
+                <h2 className="mt-6 font-display text-xl font-semibold text-foreground">
+                  {pillar.title}
+                </h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  {pillar.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Where We Are */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Where We Are
+            </h2>
+            <div className="mt-8 flex flex-col items-stretch gap-4 md:flex-row">
+              {milestones.map((milestone) => (
+                <div
+                  key={milestone}
+                  className="flex-1 rounded-xl border border-border bg-card px-6 py-5 text-sm text-muted-foreground shadow-soft"
+                >
+                  {milestone}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 md:py-28">
