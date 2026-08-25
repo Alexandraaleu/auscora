@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Cpu, Heart, Lightbulb } from "lucide-react";
+import { ArrowRight, Code, Cpu, GraduationCap, Heart, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
