@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import alexandraPhoto from "@/assets/team/alexandra.png";
 import balavigneshPhoto from "@/assets/team/balavignesh.png";
 import valentinaPhoto from "@/assets/team/valentina.png";
+import mauricioPhoto from "@/assets/team/mauricio.png";
 
 const Team = () => {
   const team = [
@@ -25,7 +26,7 @@ const Team = () => {
       name: "Mauricio Parás ",
       role: "CTO",
       linkedin: "#",
-      photo: null as string | null,
+      photo: mauricioPhoto,
     },
     {
       name: "Valentina Trolese",
