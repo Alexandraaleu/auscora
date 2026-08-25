@@ -34,8 +34,9 @@ const About = () => {
               About AUSCORA
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Pioneering medical device innovation to advance patient care worldwide.
+              A MedTech startup building acoustic AI that detects pulmonary disease from sound.
             </p>
+
           </div>
         </div>
       </section>
