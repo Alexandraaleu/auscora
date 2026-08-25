@@ -37,7 +37,7 @@ const pillars = [
 ];
 
 const milestones = [
-  "Early-stage with a working prototype",
+  "Early-stage with a working PoC",
   "Clinical partnership at Hospital Da Luz",
   "Validating with physicians on pulmonary conditions",
 ];
