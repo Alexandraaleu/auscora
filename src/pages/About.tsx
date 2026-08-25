@@ -8,19 +8,20 @@ const About = () => {
     {
       icon: ShieldCheck,
       title: "Quality & Safety",
-      description: "Every device undergoes rigorous testing to meet the highest standards of medical safety and reliability.",
+      description: "Our technology is developed to the highest standards of medical safety and reliability, so physicians can trust every signal it produces.",
     },
     {
       icon: Target,
-      title: "Precision Engineering",
-      description: "We engineer our products with meticulous attention to detail, ensuring accuracy in every measurement.",
+      title: "Clinically Validated AI",
+      description: "Our models are trained and evaluated on real patient sound data, so results hold up in the clinic and not just in the lab.",
     },
     {
       icon: Users,
       title: "Clinical Partnership",
-      description: "We collaborate closely with healthcare professionals to understand real-world clinical needs.",
+      description: "We work directly with clinicians — including our partnership at Hospital Da Luz — to validate our approach on real pulmonary conditions.",
     },
   ];
+
 
 
   return (
@@ -33,8 +34,9 @@ const About = () => {
               About AUSCORA
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Pioneering medical device innovation to advance patient care worldwide.
+              A MedTech startup building acoustic AI that detects pulmonary disease from sound.
             </p>
+
           </div>
         </div>
       </section>
@@ -49,18 +51,19 @@ const About = () => {
                 Our Story
               </div>
               <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Advancing Healthcare Through Innovation
+                Advancing Respiratory Care Through Sound
               </h2>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                AUSCORA was founded with a singular vision: to create medical devices that empower 
-                healthcare professionals to deliver exceptional patient care. Our team of engineers, 
-                clinicians, and researchers work together to develop solutions that address the most 
-                pressing challenges in modern medicine.
+                Pulmonary diseases such as COPD and pneumonia affect hundreds of millions of people
+                worldwide, yet diagnosis still depends on imaging that is slow, expensive, radiative
+                and often unavailable at the point of first contact. AUSCORA was founded to close
+                that gap.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                From initial concept to final product, every AUSCORA device is designed with the 
-                end user in mind—ensuring intuitive operation, reliable performance, and seamless 
-                integration into clinical workflows.
+                We are building an AI platform that analyses lung sounds and learns the acoustic
+                signature of disease, returning a clinical decision-support signal in the time it
+                takes to auscultate. We are currently working with Hospital Da Luz to validate the
+                approach with physicians and bring our solution closer to the market.
               </p>
             </div>
 
@@ -72,7 +75,7 @@ const About = () => {
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground">Mission</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  To develop precision medical devices that enhance diagnostic accuracy and patient outcomes.
+                  To make pulmonary diagnosis fast, radiation-free and available at the point of first contact.
                 </p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft">
@@ -81,10 +84,11 @@ const About = () => {
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground">Vision</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  To be the global leader in innovative medical technology that transforms patient care.
+                  Acoustic intelligence as a standard part of everyday respiratory care.
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
