@@ -8,19 +8,20 @@ const About = () => {
     {
       icon: ShieldCheck,
       title: "Quality & Safety",
-      description: "Every device undergoes rigorous testing to meet the highest standards of medical safety and reliability.",
+      description: "Our technology is developed to the highest standards of medical safety and reliability, so physicians can trust every signal it produces.",
     },
     {
       icon: Target,
-      title: "Precision Engineering",
-      description: "We engineer our products with meticulous attention to detail, ensuring accuracy in every measurement.",
+      title: "Clinically Validated AI",
+      description: "Our models are trained and evaluated on real patient sound data, so results hold up in the clinic and not just in the lab.",
     },
     {
       icon: Users,
       title: "Clinical Partnership",
-      description: "We collaborate closely with healthcare professionals to understand real-world clinical needs.",
+      description: "We work directly with clinicians — including our partnership at Hospital Da Luz — to validate our approach on real pulmonary conditions.",
     },
   ];
+
 
 
   return (
