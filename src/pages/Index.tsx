@@ -21,14 +21,12 @@ const pillars = [
   {
     icon: Activity,
     title: "The Problem",
-    description:
-      "Pulmonary diseases including COPD and pneumonia affect hundreds of millions globally. Diagnosis still depends on imaging that is slow, expensive, radiative, and often unavailable at the point of first contact.",
+    description: "Pulmonary diseases affect hundreds of millions globally. ",
   },
   {
     icon: AudioWaveform,
     title: "Our Approach",
-    description:
-      "Acoustic AI that learns the sound signature of disease and delivers a decision-support signal in the time it takes to auscultate.",
+    description: "AI that learns the sound signature of disease and delivers a decision-support signal.",
   },
   {
     icon: TrendingUp,
