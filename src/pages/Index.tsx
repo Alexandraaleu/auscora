@@ -8,9 +8,10 @@ import websummitLogo from "@/assets/partners/websummit.png";
 import mikrolegatLogo from "@/assets/partners/mikrolegat.png";
 import techbbqLogo from "@/assets/partners/techbbq.png";
 import sduRioLogo from "@/assets/partners/sdu-rio.png";
-import bioinnovationLogo from "@/assets/partners/bioinnovation.png.asset.json";
-import christianNielsensFondLogo from "@/assets/partners/christian-nielsens-fond.png.asset.json";
-import ottoMonstedFondLogo from "@/assets/partners/otto-monsted-fond.png.asset.json";
+import bioinnovationLogo from "@/assets/partners/bioinnovation.png";
+import christianNielsensFondLogo from "@/assets/partners/christian-nielsens-fond.png";
+import ottoMonstedFondLogo from "@/assets/partners/otto-monsted-fond.png";
+import hospitalDaLuzLogo from "@/assets/partners/hospital-da-luz.png";
 
 const partners = [
   { name: "DTU Skylab", logo: dtuSkylabLogo },
@@ -18,9 +19,10 @@ const partners = [
   { name: "SDU RIO", logo: sduRioLogo },
   { name: "TechBBQ", logo: techbbqLogo },
   { name: "Web Summit", logo: websummitLogo },
-  { name: "BioInnovation Institute", logo: bioinnovationLogo.url },
-  { name: "Christian Nielsens Fond", logo: christianNielsensFondLogo.url },
-  { name: "Otto Mønsted Fond", logo: ottoMonstedFondLogo.url },
+  { name: "BioInnovation Institute", logo: bioinnovationLogo },
+  { name: "Christian Nielsens Fond", logo: christianNielsensFondLogo },
+  { name: "Otto Mønsted Fond", logo: ottoMonstedFondLogo },
+  { name: "Hospital Da Luz", logo: hospitalDaLuzLogo },
 ];
 
 const pillars = [
