@@ -168,7 +168,7 @@ const Index = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-auto max-w-[140px] object-contain"
+                  className="h-full w-auto max-w-[170px] object-contain"
                 />
               </div>
             ))}
