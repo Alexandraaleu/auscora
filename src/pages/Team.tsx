@@ -7,6 +7,16 @@ import alexandraPhoto from "@/assets/team/alexandra.png";
 import balavigneshPhoto from "@/assets/team/balavignesh.png";
 import valentinaPhoto from "@/assets/team/valentina.png";
 import mauricioPhoto from "@/assets/team/mauricio-fixed.png";
+import matteoPhoto from "@/assets/team/matteo.jpg";
+import luciePhoto from "@/assets/team/lucie.jpg";
+import dimitrosPhoto from "@/assets/team/dimitros.jpg";
+import martimPhoto from "@/assets/team/martim.jpg";
+import emmaPhoto from "@/assets/team/emma.jpg";
+import zhijinPhoto from "@/assets/team/zhijin.jpg";
+import torkildPhoto from "@/assets/team/torkild.jpg";
+import anettePhoto from "@/assets/team/anette.jpg";
+import madsPhoto from "@/assets/team/mads.jpg";
+import amaliePhoto from "@/assets/team/amalie.jpg";
 
 const Team = () => {
   const team: { name: string; role: string; linkedin?: string; photo?: string }[] = [
@@ -14,19 +24,19 @@ const Team = () => {
     { name: "Mauricio Parás", role: "CTO", photo: mauricioPhoto },
     { name: "Balavignesh Baskar", role: "CMO", linkedin: "https://www.linkedin.com/in/balavignesh-baskar-3609a0356/", photo: balavigneshPhoto },
     { name: "Valentina Trolese", role: "AI Lead", linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/", photo: valentinaPhoto },
-    { name: "Matteo", role: "Founding Engineer" },
-    { name: "Lucie", role: "Patient Journey" },
-    { name: "Dimitros", role: "Algorithm Developer" },
-    { name: "Martim", role: "Algorithm Developer" },
-    { name: "Emma", role: "UX & UI" },
-    { name: "Zhijin", role: "IP" },
+    { name: "Matteo", role: "Founding Engineer", photo: matteoPhoto },
+    { name: "Lucie", role: "Patient Journey", photo: luciePhoto },
+    { name: "Dimitros", role: "Algorithm Developer", photo: dimitrosPhoto },
+    { name: "Martim", role: "Algorithm Developer", photo: martimPhoto },
+    { name: "Emma", role: "UX & UI", photo: emmaPhoto },
+    { name: "Zhijin", role: "IP", photo: zhijinPhoto },
   ];
 
   const mentors = [
-    { name: "Torkild", role: "Mentor" },
-    { name: "Anette", role: "Mentor" },
-    { name: "Mads", role: "Mentor" },
-    { name: "Amalie", role: "Startup Coach" },
+    { name: "Torkild", role: "Mentor", photo: torkildPhoto },
+    { name: "Anette", role: "Mentor", photo: anettePhoto },
+    { name: "Mads", role: "Mentor", photo: madsPhoto },
+    { name: "Amalie", role: "Startup Coach", photo: amaliePhoto },
   ];
 
   return (
@@ -90,8 +100,8 @@ const Team = () => {
           <div className="mx-auto max-w-4xl grid gap-6 grid-cols-2 lg:grid-cols-4">
             {mentors.map((m) => (
               <div key={m.name} className="rounded-2xl border border-border bg-card p-6 shadow-soft text-center">
-                <div className="h-16 w-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
-                  <span className="font-display text-lg font-semibold text-muted-foreground">{m.name[0]}</span>
+                <div className="h-20 w-20 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
+                  <img src={m.photo} alt={m.name} className="h-full w-full object-cover" />
                 </div>
                 <h3 className="font-display font-semibold text-foreground">{m.name}</h3>
                 <p className="mt-1 text-sm text-primary font-medium">{m.role}</p>
