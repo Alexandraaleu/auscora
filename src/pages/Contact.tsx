@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 
@@ -23,6 +24,7 @@ declare global {
 const Contact = () => {
   const { toast } = useToast();
   const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistComment, setWaitlistComment] = useState("");
   const [isWaitlistSubmitting, setIsWaitlistSubmitting] = useState(false);
   const calendarButtonRef = useRef<HTMLDivElement>(null);
   const buttonInitialized = useRef(false);
@@ -77,6 +79,7 @@ const Contact = () => {
     });
 
     setWaitlistEmail("");
+    setWaitlistComment("");
     setIsWaitlistSubmitting(false);
   };
 
@@ -130,16 +133,25 @@ const Contact = () => {
               <p className="mt-4 text-primary-foreground/80">
                 Join our waiting list and make sure you are shortlisted when our product is on the market.
               </p>
-              <form onSubmit={handleWaitlistSubmit} className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <form onSubmit={handleWaitlistSubmit} className="mt-8 flex flex-col gap-4">
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   value={waitlistEmail}
                   onChange={(e) => setWaitlistEmail(e.target.value)}
                   required
-                  className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                  maxLength={255}
+                  className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
-                <Button size="lg" variant="secondary" type="submit" disabled={isWaitlistSubmitting}>
+                <Textarea
+                  placeholder="Comments (optional)"
+                  value={waitlistComment}
+                  onChange={(e) => setWaitlistComment(e.target.value)}
+                  maxLength={500}
+                  rows={3}
+                  className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                />
+                <Button size="lg" variant="secondary" type="submit" disabled={isWaitlistSubmitting} className="self-start">
                   {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
                 </Button>
               </form>
