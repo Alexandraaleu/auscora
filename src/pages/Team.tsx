@@ -52,41 +52,50 @@ const Team = () => {
       {/* Team Members */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <a
-                key={member.name}
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-2xl border border-border bg-card p-8 shadow-soft transition-all hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
-              >
-                <div className="h-24 w-24 mx-auto mb-6 rounded-full overflow-hidden bg-muted flex items-center justify-center">
-                  {member.photo ? (
-                    <img 
-                      src={member.photo} 
-                      alt={member.name}
-                      className={`h-full w-full object-cover ${(member as { photoPosition?: string }).photoPosition || 'object-top'}`}
-                    />
-                  ) : (
-                    <span className="font-display text-xl font-semibold text-muted-foreground">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-display text-lg font-semibold text-foreground text-center">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm text-primary font-medium text-center">
-                  {member.role}
-                </p>
-                <div className="mt-4 flex justify-center">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                    <Linkedin className="h-4 w-4" />
-                    <span>Connect</span>
+          <h2 className="font-display text-2xl font-bold text-foreground text-center mb-10">The Team</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {team.map((member) => {
+              const Wrapper = member.linkedin ? "a" : "div";
+              return (
+                <Wrapper
+                  key={member.name}
+                  {...(member.linkedin ? { href: member.linkedin, target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+                >
+                  <div className="h-24 w-24 mx-auto mb-5 rounded-full overflow-hidden bg-muted flex items-center justify-center">
+                    {member.photo ? (
+                      <img src={member.photo} alt={member.name} className="h-full w-full object-cover object-top" />
+                    ) : (
+                      <span className="font-display text-xl font-semibold text-muted-foreground">
+                        {member.name.split(" ").map((n) => n[0]).join("")}
+                      </span>
+                    )}
                   </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground text-center">{member.name}</h3>
+                  <p className="mt-1 text-sm text-primary font-medium text-center">{member.role}</p>
+                  {member.linkedin && (
+                    <div className="mt-4 flex justify-center">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                        <Linkedin className="h-4 w-4" />
+                        <span>Connect</span>
+                      </div>
+                    </div>
+                  )}
+                </Wrapper>
+              );
+            })}
+          </div>
+
+          <h2 className="font-display text-2xl font-bold text-foreground text-center mt-20 mb-10">Mentors & Coach</h2>
+          <div className="mx-auto max-w-4xl grid gap-6 grid-cols-2 lg:grid-cols-4">
+            {mentors.map((m) => (
+              <div key={m.name} className="rounded-2xl border border-border bg-card p-6 shadow-soft text-center">
+                <div className="h-16 w-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+                  <span className="font-display text-lg font-semibold text-muted-foreground">{m.name[0]}</span>
                 </div>
-              </a>
+                <h3 className="font-display font-semibold text-foreground">{m.name}</h3>
+                <p className="mt-1 text-sm text-primary font-medium">{m.role}</p>
+              </div>
             ))}
           </div>
         </div>
