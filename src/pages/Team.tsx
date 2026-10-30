@@ -9,31 +9,24 @@ import valentinaPhoto from "@/assets/team/valentina.png";
 import mauricioPhoto from "@/assets/team/mauricio-fixed.png";
 
 const Team = () => {
-  const team = [
-    {
-      name: "Alexandra Leu",
-      role: "CEO",
-      linkedin: "https://www.linkedin.com/in/alexandra-leu-236a9621a",
-      photo: alexandraPhoto,
-    },
-    {
-      name: "Balavignesh Baskar",
-      role: "CMO",
-      linkedin: "https://www.linkedin.com/in/balavignesh-baskar-3609a0356/",
-      photo: balavigneshPhoto,
-    },
-    {
-      name: "Mauricio Parás ",
-      role: "CTO",
-      linkedin: "#",
-      photo: mauricioPhoto,
-    },
-    {
-      name: "Valentina Trolese",
-      role: "Head of Software Infrastructure",
-      linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/",
-      photo: valentinaPhoto,
-    },
+  const team: { name: string; role: string; linkedin?: string; photo?: string }[] = [
+    { name: "Alexandra Leu", role: "CEO", linkedin: "https://www.linkedin.com/in/alexandra-leu-236a9621a", photo: alexandraPhoto },
+    { name: "Mauricio Parás", role: "CTO", photo: mauricioPhoto },
+    { name: "Balavignesh Baskar", role: "CMO", linkedin: "https://www.linkedin.com/in/balavignesh-baskar-3609a0356/", photo: balavigneshPhoto },
+    { name: "Valentina Trolese", role: "AI Lead", linkedin: "https://www.linkedin.com/in/valentina-trolese-2aa932380/", photo: valentinaPhoto },
+    { name: "Matteo", role: "Founding Engineer" },
+    { name: "Lucie", role: "Patient Journey" },
+    { name: "Dimitros", role: "Algorithm Developer" },
+    { name: "Martim", role: "Algorithm Developer" },
+    { name: "Emma", role: "UX & UI" },
+    { name: "Zhijin", role: "IP" },
+  ];
+
+  const mentors = [
+    { name: "Torkild", role: "Mentor" },
+    { name: "Anette", role: "Mentor" },
+    { name: "Mads", role: "Mentor" },
+    { name: "Amalie", role: "Startup Coach" },
   ];
 
   return (
