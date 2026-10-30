@@ -41,11 +41,9 @@ function doPost(e) {
     }
 
     if (NOTIFY_EMAIL) {
-      MailApp.sendEmail(
-        NOTIFY_EMAIL,
-        `New AUSCORA ${type === "partner" ? "partnership request" : "waitlist signup"}`,
-        `Email: ${email}\nType: ${type}\n\n${comment || "(no comment)"}`
-      );
+      const subject = "New AUSCORA " + (type === "partner" ? "partnership request" : "waitlist signup");
+      const body = "Email: " + email + "\nType: " + type + "\n\n" + (comment || "(no comment)");
+      MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
     }
 
     return json({ ok: true });

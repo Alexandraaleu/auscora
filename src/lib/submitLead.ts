@@ -5,7 +5,7 @@
  * Setup: see google-apps-script/README.md. Paste the deployed web app URL
  * (ends in /exec) into LEADS_ENDPOINT below.
  */
-export const LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE";
+export const LEADS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzJenaDqE-fUhLjs5Is3R2hhYEuT57t8DvnWLq-FbEkTLAeyPD62EynXpHU8qnN9TkZsg/exec";
 
 export type LeadType = "partner" | "waitlist";
 
