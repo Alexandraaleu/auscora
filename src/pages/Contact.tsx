@@ -1,10 +1,36 @@
 import { useEffect, useRef, useState } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { Mail, MapPin, Phone, Handshake, ListChecks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { submitLead, type LeadType } from "@/lib/submitLead";
 import Layout from "@/components/Layout";
+
+const leadOptions: { value: LeadType; label: string; icon: typeof Handshake }[] = [
+  { value: "waitlist", label: "Join the waiting list", icon: ListChecks },
+  { value: "partner", label: "Partner with us", icon: Handshake },
+];
+
+const leadCopy: Record<LeadType, { heading: string; text: string; button: string; busy: string; placeholder: string }> = {
+  waitlist: {
+    heading: "Ready to Make an Impact?",
+    text: "Join our waiting list and make sure you are shortlisted when our product is on the market.",
+    button: "Join Waiting List",
+    busy: "Joining...",
+    placeholder: "Comments (optional)",
+  },
+  partner: {
+    heading: "Let's Build This Together",
+    text: "Clinicians, hospitals, investors or industry partners — tell us a bit about yourself and how you'd like to collaborate.",
+    button: "Send Partnership Request",
+    busy: "Sending...",
+    placeholder: "Who are you and how would you like to partner? (optional)",
+  },
+};
 
 declare global {
   interface Window {
@@ -23,11 +49,24 @@ declare global {
 
 const Contact = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const [leadType, setLeadType] = useState<LeadType>(
+    searchParams.get("type") === "partner" ? "partner" : "waitlist",
+  );
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [waitlistComment, setWaitlistComment] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [isWaitlistSubmitting, setIsWaitlistSubmitting] = useState(false);
+  const copy = leadCopy[leadType];
   const calendarButtonRef = useRef<HTMLDivElement>(null);
   const buttonInitialized = useRef(false);
+
+  useEffect(() => {
+    if (window.location.hash === "#join") {
+      document.getElementById("join")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   useEffect(() => {
     if (buttonInitialized.current) return;
@@ -68,19 +107,37 @@ const Contact = () => {
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!waitlistEmail.trim()) return;
-    
+    if (!waitlistEmail.trim() || !consent) return;
+
     setIsWaitlistSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      await submitLead({
+        type: leadType,
+        email: waitlistEmail.trim(),
+        comment: waitlistComment.trim(),
+        consent,
+        website: honeypot,
+      });
 
-    toast({
-      title: "You're on the list!",
-      description: "We'll notify you when our product is ready.",
-    });
+      toast(
+        leadType === "partner"
+          ? { title: "Thanks for reaching out!", description: "Our team will get back to you shortly." }
+          : { title: "You're on the list!", description: "We'll notify you when our product is ready." },
+      );
 
-    setWaitlistEmail("");
-    setWaitlistComment("");
-    setIsWaitlistSubmitting(false);
+      setWaitlistEmail("");
+      setWaitlistComment("");
+      setConsent(false);
+    } catch (err) {
+      console.error(err);
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+        description: "Please try again, or email us at auscoradk@gmail.com.",
+      });
+    } finally {
+      setIsWaitlistSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -126,14 +183,47 @@ const Contact = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Waiting List */}
-            <div className="rounded-3xl bg-primary p-8 md:p-12 flex flex-col justify-center">
+            <div id="join" className="scroll-mt-24 rounded-3xl bg-primary p-8 md:p-12 flex flex-col justify-center">
+              <div
+                role="radiogroup"
+                aria-label="What would you like to do?"
+                className="mb-8 grid grid-cols-2 gap-1 rounded-xl bg-primary-foreground/10 p-1"
+              >
+                {leadOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    role="radio"
+                    aria-checked={leadType === opt.value}
+                    onClick={() => setLeadType(opt.value)}
+                    className={cn(
+                      "flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                      leadType === opt.value
+                        ? "bg-primary-foreground text-primary shadow-sm"
+                        : "text-primary-foreground/80 hover:text-primary-foreground",
+                    )}
+                  >
+                    <opt.icon className="h-4 w-4 shrink-0" />
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
               <h2 className="font-display text-2xl font-bold tracking-tight text-primary-foreground sm:text-3xl">
-                Ready to Make an Impact?
+                {copy.heading}
               </h2>
-              <p className="mt-4 text-primary-foreground/80">
-                Join our waiting list and make sure you are shortlisted when our product is on the market.
-              </p>
+              <p className="mt-4 text-primary-foreground/80">{copy.text}</p>
               <form onSubmit={handleWaitlistSubmit} className="mt-8 flex flex-col gap-4">
+                {/* Honeypot: hidden from humans, bots tend to fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <Input
                   type="email"
                   placeholder="Enter your email"
@@ -144,15 +234,34 @@ const Contact = () => {
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
                 <Textarea
-                  placeholder="Comments (optional)"
+                  placeholder={copy.placeholder}
                   value={waitlistComment}
                   onChange={(e) => setWaitlistComment(e.target.value)}
-                  maxLength={500}
+                  maxLength={1000}
                   rows={3}
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
-                <Button size="lg" variant="secondary" type="submit" disabled={isWaitlistSubmitting} className="self-start">
-                  {isWaitlistSubmitting ? "Joining..." : "Join Waiting List"}
+                <label className="flex items-start gap-3 text-sm text-primary-foreground/80 cursor-pointer">
+                  <Checkbox
+                    checked={consent}
+                    onCheckedChange={(v) => setConsent(v === true)}
+                    required
+                    className="mt-0.5 border-primary-foreground/60 data-[state=checked]:bg-primary-foreground data-[state=checked]:text-primary"
+                  />
+                  <span>
+                    I agree that AUSCORA may store my email and comment to contact me about{" "}
+                    {leadType === "partner" ? "partnership opportunities" : "the product launch"}. I can ask
+                    for my data to be deleted at any time by emailing auscoradk@gmail.com.
+                  </span>
+                </label>
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  type="submit"
+                  disabled={isWaitlistSubmitting || !consent}
+                  className="self-start"
+                >
+                  {isWaitlistSubmitting ? copy.busy : copy.button}
                 </Button>
               </form>
               <div className="mt-6" ref={calendarButtonRef} />

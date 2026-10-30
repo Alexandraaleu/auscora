@@ -146,7 +146,7 @@ const Index = () => {
             </p>
             <div className="mt-8">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact?type=partner#join">Become a Partner</Link>
               </Button>
             </div>
           </div>
